@@ -1,0 +1,59 @@
+/* Caja blanca con bordes redondeados que envuelve la tabla */
+.tarjeta {
+  overflow: hidden;
+  border: 1px solid #dfe8dc;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgb(29 63 34 / 8%);
+}
+
+/* En pantallas pequeñas la tabla se mueve de lado sin mover el paginador */
+.desplazar {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  background: transparent;
+}
+
+/* Paginador pegado abajo de la tabla */
+mat-paginator {
+  border-top: 1px solid #eef3ec;
+  background: #ffffff;
+}
+
+/* Encabezados */
+th.mat-mdc-header-cell {
+  padding: 16px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #f1f8e9;
+  background: #1d3f22;
+}
+
+/* Celdas */
+td.mat-mdc-cell {
+  padding: 14px 20px;
+  font-size: 14px;
+  color: #22361f;
+  border-bottom-color: #eef3ec;
+}
+
+/* Filas intercaladas y resaltado al pasar el mouse */
+tr.mat-mdc-row:nth-child(even) {
+  background: #f8fbf6;
+}
+
+tr.mat-mdc-row:hover {
+  background: #fff3e0;
+}
+
+/* La primera columna (el id) en color de acento */
+td.mat-mdc-cell:first-child {
+  font-weight: 600;
+  color: #2e7d32;
+}

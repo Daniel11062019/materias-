@@ -1,0 +1,13 @@
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { MenuComponent } from './views/menu/menu.component';
+
+@Component({
+  changeDetection: ChangeDetectionStrategy.Eager,
+  imports: [MenuComponent],
+  selector: 'app-root',
+  styleUrl: './app.css',
+  templateUrl: './app.html',
+})
+export class App {
+  title = 'MATERIAS_UNIVERSITARIAS';
+}

@@ -1,0 +1,70 @@
+@if (auth.usuario; as usuario) {
+  <mat-sidenav-container class="sidenav-container">
+
+    <!-- MENÚ DEL COSTADO -->
+    <mat-sidenav
+      #drawer
+      class="sidenav"
+      fixedInViewport
+      [attr.role]="isHandset ? 'dialog' : 'navigation'"
+      [mode]="isHandset ? 'over' : 'side'"
+      [opened]="!isHandset">
+
+      <div class="marca">
+        <mat-icon class="marca-icono">school</mat-icon>
+        <span class="marca-texto">Materias <span>Universitarias</span></span>
+      </div>
+
+      <p class="seccion">Menú</p>
+
+      <nav class="opciones">
+        <a routerLink="/inicio" routerLinkActive="activo" (click)="isHandset && drawer.close()">
+          <mat-icon>home</mat-icon> Inicio
+        </a>
+        <a routerLink="/materias" routerLinkActive="activo" (click)="isHandset && drawer.close()">
+          <mat-icon>school</mat-icon> Materias
+        </a>
+      </nav>
+
+      <!-- USUARIO ABAJO -->
+      <div class="usuario">
+        <div class="avatar">{{ usuario.nombre.charAt(0) }}</div>
+        <div class="usuario-datos">
+          <strong>{{ usuario.nombre }}</strong>
+          <span>{{ usuario.rol }}</span>
+        </div>
+        <button matIconButton type="button" aria-label="Cerrar sesión" (click)="cerrarSesion()">
+          <mat-icon>logout</mat-icon>
+        </button>
+      </div>
+
+    </mat-sidenav>
+
+    <!-- CONTENIDO -->
+    <mat-sidenav-content>
+
+      <header class="barra">
+        <button matIconButton type="button" aria-label="Abrir o cerrar menú" (click)="drawer.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <a class="titulo" routerLink="/inicio">Materias <span>Universitarias</span></a>
+
+        <span class="espaciador"></span>
+
+        <span class="nombre-usuario">Hola, {{ usuario.nombre }}</span>
+        <button matButton="outlined" type="button" (click)="cerrarSesion()">
+          <mat-icon>logout</mat-icon> Cerrar sesión
+        </button>
+      </header>
+
+      <main class="pagina">
+        <router-outlet></router-outlet>
+      </main>
+
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+} @else {
+  <router-outlet></router-outlet>
+}
